@@ -28,7 +28,6 @@ class AccesoController extends Controller
             'password.string' => 'La contraseña debe ser una cadena de texto',
             'password.min' => 'La contraseña debe tener al menos 6 caractéres',
         ]);
-
         if( $validator->fails() ){
             if( $request->ajax() ){
                 return response()->json([
@@ -36,19 +35,15 @@ class AccesoController extends Controller
                     'errors' => $validator->errors()
                 ], 422);
             }
-
             return redirect()
             ->back()
             ->withErrors( $validator )
             ->withInput( $request->only('email') );
         }
-
         $credenciales = $request->only('email', 'password');
-
         if( Auth::attempt( $credenciales ) ){
             $request->session()->regenerate();
             $usuario = Auth::user();
-
             if( !$usuario->tipo ){
                 Auth::logout();
                 if ($request->ajax() ){
@@ -66,7 +61,6 @@ class AccesoController extends Controller
                 return response()->json([
                     'success' => true,
                     'message' => 'Inicio de sesión exitoso',
-                    'redirect' => ''
                     'redirect' => $this->obtenerUrlRedireccion($usuario)
                 ]);
             }
@@ -116,8 +110,5 @@ class AccesoController extends Controller
             default:
                 return route('acceso');
         }
-
-
-        
     }
 }
