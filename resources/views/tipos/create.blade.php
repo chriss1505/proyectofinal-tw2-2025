@@ -122,6 +122,29 @@
             btn.html('<i class="bi bi-check-circle me-1"></i> Crear Usuario').prop("disabled", false);
         }
     }
+    function actualizarPreview(tipo){
+        const preview = $("#previewTipo");
+        const badgePreview = $("#badgePreview");
+        
+        if( tipo.trim() ){
+            // Determinar color del badge según el tipo
+            let colorClass = "bg-secondary";
+            if(tipo.toLowerCase() === "admin") colorClass = "bg-danger";
+            else if(tipo.toLowerCase() === "profesor") colorClass = "bg-success";
+            else if(tipo.toLowerCase() === "estudiante") colorClass = "bg-primary";
+            else if(tipo.toLowerCase() === "coordinador") colorClass = "bg-warning";
+            
+            const badge = `<span class="badge ${colorClass} fs-6">
+                <i class="bi bi-person-badge me-1"></i>${tipo}
+            </span>`;
+            
+            badgePreview.html(badge);
+            preview.slideDown();
+        }
+        else{
+            preview.slideUp();
+        }
+    }
 </script>
 @endpush
 
