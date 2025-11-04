@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\AccesoController;
 use App\Http\Controllers\Auth\UsuarioController;
 use App\Http\Controllers\TipoController;
 use App\Http\Controllers\MateriaController;
+use App\Http\Controllers\MateriasXUsuarioController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,4 +32,8 @@ Route::middleware('auth')->group(function(){
 
     Route::resource('tipos', TipoController::class)->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
     Route::resource('materias', MateriaController::class)->only(['index', 'create', 'store', 'edit', 'update', 'destroy']);
+
+    Route::get('materiasxusuario/{id}', [MateriasXUsuario::class, 'index'])->name('materiasxusuario.index');
+    Route::post('materiasxusuario/{id}/asignar', [MateriasXUsuario::class, 'asignar'])->name('materiasxusuario.asignar');
+    Route::delete('materiasxusuario/{asignacion_id}/desasignar', [MateriasXUsuario::class, 'desasignar'])->name('materiasxusuario.desasignar');
 });
