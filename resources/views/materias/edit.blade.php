@@ -1,3 +1,4 @@
+<!-- resources/views/materias/edit.blade.php -->
 @extends('layouts.basedashboard')
 
 @section('titulo', 'Editar Materia')

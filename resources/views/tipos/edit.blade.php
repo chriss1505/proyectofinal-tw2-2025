@@ -149,7 +149,15 @@
 @endpush
 
 @push('JSOR')
-    // Manejo del formulario
+    actualizarPreview( $("#tipo").val() );
+    $("#tipo").on("input", function(){
+        actualizarPreview( $(this).val() );
+    });
+    $(".ejemplo-tipo").on("click", function(){
+        const tipo = $(this).data("tipo");
+        $("#tipo").val(tipo);
+        actualizarPreview( tipo );
+    });
     $("#formEditarTipo").on("submit", function(e){
         e.preventDefault();
         cambiarEstadoBoton(true);

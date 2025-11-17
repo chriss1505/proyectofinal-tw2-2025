@@ -119,7 +119,7 @@
             btn.html('<i class="bi bi-check-circle me-1"></i> Crear Materia').prop("disabled", false);
         }
     }
-     function actualizarPreview(nombre) {
+    function actualizarPreview(nombre) {
         const preview = $("#previewMateria");
         const materiaPreview = $("#materiaPreview");
         if( nombre.trim() ){

@@ -121,7 +121,6 @@ class TipoController extends Controller
         try{
             $tipo = Tipo::findOrFail($id);
 
-
             if( $tipo->users()->count() > 0 ){
                 return redirect()
                 ->route('tipos.index')

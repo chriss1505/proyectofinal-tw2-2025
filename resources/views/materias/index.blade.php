@@ -84,12 +84,12 @@
 
 <script>
     function editarMateria(id){
-        window.location.href = {{ route('materias.index') }}/${id}/edit;
+        window.location.href = `{{ route('materias.index') }}/${id}/edit`;
     }
     function eliminarMateria(id, nombre){
         Swal.fire({
             title: "¿Eliminar materia?",
-            text: ¿Estás seguro de eliminar la materia "${nombre}"?,
+            text: `¿Estás seguro de eliminar la materia "${nombre}"?`,
             icon: "warning",
             showCancelButton: true,
             confirmButtonColor: "#d33",
@@ -100,7 +100,7 @@
             if (result.isConfirmed) {
                 const form = $("<form>", {
                     "method": "POST",
-                    "action": {{ route('materias.index') }}/${id}
+                    "action": `{{ route('materias.index') }}/${id}`
                 });
                 form.append($("<input>", {
                     "type": "hidden",
