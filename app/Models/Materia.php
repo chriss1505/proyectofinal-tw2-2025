@@ -19,6 +19,6 @@ class Materia extends Model
     }
 
     public function users(){
-        return $this->belongsToMany(Users::class, 'materias_x_usuarios', 'materias_id', 'users_id');
+        return $this->belongsToMany(User::class, 'materias_x_usuarios', 'materias_id', 'users_id');
     }
 }

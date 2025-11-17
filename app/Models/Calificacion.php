@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Calificaciones extends Model
+class Calificacion extends Model
 {
     //use HasFactory;
     public $timestamps = false;
@@ -13,12 +13,12 @@ class Calificaciones extends Model
     protected $table = 'calificaciones';
 
     protected $fillable = [
-        'calidicacion',
+        'calificacion',
         'materias_x_usuarios_id'
     ];
 
     public function materiasXUsuarios(){
-        return $this->belongsTo(MateriasXUsuarios::class, 'materias_x_usuarios_id');
+        return $this->belongsTo(MateriasXUsuario::class, 'materias_x_usuarios_id');
     }
 
     public function materias(){

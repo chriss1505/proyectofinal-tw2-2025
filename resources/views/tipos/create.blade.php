@@ -150,10 +150,11 @@
 
 @push('JSOR')
     $("#tipo").on("input", function(){
-        //
+        actualizarPreview($(this).val());
     });
     $(".ejemplo-tipo").on("click", function(){
-        //
+        const tipo = $(this).data("tipo");
+        $("#tipo").val(tipo).trigger("input");
     });
     
     // Manejo del formulario

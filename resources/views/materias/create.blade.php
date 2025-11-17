@@ -60,7 +60,7 @@
                                 </div>
                                 <!-- Ejemplos sugeridos -->
                                 <div class="mb-4">
-                                    <label class="form-label fw-semibold">Ejemplos comunes:</label>
+                                    <label class="form-label fw-semibold">Ejemplos comunes de materia:</label>
                                     <div class="d-flex flex-wrap gap-2">
                                         <button type="button" class="btn btn-sm btn-outline-primary ejemplo-materia" data-materia="Matemáticas">
                                             Matemáticas
@@ -119,7 +119,7 @@
             btn.html('<i class="bi bi-check-circle me-1"></i> Crear Materia').prop("disabled", false);
         }
     }
-     function actualizarPreview(nombre) {
+    function actualizarPreview(nombre) {
         const preview = $("#previewMateria");
         const materiaPreview = $("#materiaPreview");
         if( nombre.trim() ){
